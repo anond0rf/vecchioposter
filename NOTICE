@@ -1,0 +1,7 @@
+This project includes libraries licensed under the Apache License, Version 2.0. You may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+
+1. cobra (github.com/spf13/cobra)  
+  - License: Apache 2.0
+
+2. mousetrap (github.com/inconshreveable/mousetrap)
+   - License: Apache 2.0
