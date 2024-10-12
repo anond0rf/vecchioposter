@@ -45,15 +45,19 @@ func init() {
 	localizer = i18n.NewLocalizer(bundle, lang)
 
 	postThreadCmd = &cobra.Command{
-		Use:   "new-thread",
-		Short: localize("NewThreadDescription", nil),
-		Run:   newThread,
+		Use:     "new-thread",
+		Short:   localize("NewThreadDescription", nil),
+		Run:     newThread,
+		Example: localize("NewThreadExample", nil),
+		Aliases: []string{"thread", "nt", "newthread", "create-thread", "post-thread"},
 	}
 
 	postReplyCmd = &cobra.Command{
-		Use:   "post-reply",
-		Short: localize("PostReplyDescription", nil),
-		Run:   postReply,
+		Use:     "post-reply",
+		Short:   localize("PostReplyDescription", nil),
+		Run:     postReply,
+		Example: localize("PostReplyExample", nil),
+		Aliases: []string{"reply", "pr", "postreply", "add-reply", "post-reply"},
 	}
 
 	postThreadCmd.Flags().StringVarP(&threadOpts.Board, "board", "b", "", localize("FlagBoard", nil))

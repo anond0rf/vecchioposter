@@ -10,6 +10,8 @@
   "ThreadPostedSuccessfully": "Thread posted successfully (id: {{.Id}}) - {{.ThreadOpts}}",
   "ReplyPostedSuccessfully": "Reply posted successfully (id: {{.Id}}) - {{.ReplyOpts}}",
   "ErrorBodyFlags": "cannot use both -m and -M options at the same time",
+  "NewThreadExample": "vecchioposter new-thread -b b -B \"This is a new thread on board /b/\" -f file.jpg",
+  "PostReplyExample": "vecchioposter post-reply -b b -t 1 -B \"This is a new reply to thread #1 of board /b/\"",
   "FlagThread": "ID of the thread to reply to (required)",
   "FlagBoard": "Board name (e.g., 'b') (required)",
   "FlagName": "Name of the user",

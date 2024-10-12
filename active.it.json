@@ -10,6 +10,8 @@
   "ThreadPostedSuccessfully": "Thread pubblicato con successo (id: {{.Id}}) - {{.ThreadOpts}}",
   "ReplyPostedSuccessfully": "Risposta pubblicata con successo (id: {{.Id}}) - {{.ReplyOpts}}",
   "ErrorBodyFlags": "I flag -m e -M non possono essere usati insieme",
+  "NewThreadExample": "vecchioposter new-thread -b b -B \"Questo è un nuovo thread sulla board /b/\" -f file.jpg",
+  "PostReplyExample": "vecchioposter post-reply -b b -t 1 -B \"Questa è una nuova risposta al thread #1 della board /b/\"",
   "FlagThread": "ID del thread a cui rispondere (obbligatorio)",
   "FlagBoard": "Nome della board (es. 'b') (obbligatorio)",
   "FlagName": "Nome utente",
