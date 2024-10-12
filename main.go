@@ -20,7 +20,7 @@ import (
 var translationsFS embed.FS
 var localizer *i18n.Localizer
 
-var postThreadCmd *cobra.Command
+var newThreadCmd *cobra.Command
 var postReplyCmd *cobra.Command
 
 var threadOpts = client.Thread{}
@@ -44,7 +44,7 @@ func init() {
 
 	localizer = i18n.NewLocalizer(bundle, lang)
 
-	postThreadCmd = &cobra.Command{
+	newThreadCmd = &cobra.Command{
 		Use:     "new-thread",
 		Short:   localize("NewThreadDescription", nil),
 		Run:     newThread,
@@ -57,24 +57,24 @@ func init() {
 		Short:   localize("PostReplyDescription", nil),
 		Run:     postReply,
 		Example: localize("PostReplyExample", nil),
-		Aliases: []string{"reply", "pr", "postreply", "add-reply", "post-reply"},
+		Aliases: []string{"reply", "pr", "postreply", "add-reply", "new-reply"},
 	}
 
-	postThreadCmd.Flags().StringVarP(&threadOpts.Board, "board", "b", "", localize("FlagBoard", nil))
-	postThreadCmd.Flags().StringVarP(&threadOpts.Name, "name", "n", "", localize("FlagName", nil))
-	postThreadCmd.Flags().StringVarP(&threadOpts.Subject, "subject", "s", "", localize("FlagSubject", nil))
-	postThreadCmd.Flags().StringVarP(&threadOpts.Email, "email", "e", "", localize("FlagEmail", nil))
-	postThreadCmd.Flags().BoolVarP(&threadOpts.Spoiler, "spoiler", "S", false, localize("FlagSpoiler", nil))
-	postThreadCmd.Flags().StringVarP(&threadOpts.Body, "body", "B", "", localize("FlagBody", nil))
-	postThreadCmd.Flags().StringVarP(&msgFile, "msg-file", "m", "", localize("FlagMsgFile", nil))
-	postThreadCmd.Flags().StringVarP(&threadOpts.Embed, "embed", "E", "", localize("FlagEmbed", nil))
-	postThreadCmd.Flags().StringVarP(&threadOpts.Password, "password", "p", "", localize("FlagPassword", nil))
-	postThreadCmd.Flags().BoolVarP(&threadOpts.Sage, "prevent-bump", "P", false, localize("FlagPreventBump", nil))
-	postThreadCmd.Flags().StringSliceVarP(&threadOpts.Files, "files", "f", []string{}, localize("FlagFiles", nil))
-	postThreadCmd.Flags().BoolVarP(&verbose, "verbose", "v", false, localize("FlagVerbose", nil))
-	postThreadCmd.Flags().StringVarP(&userAgent, "user-agent", "u", "", localize("FlagUserAgent", nil))
+	newThreadCmd.Flags().StringVarP(&threadOpts.Board, "board", "b", "", localize("FlagBoard", nil))
+	newThreadCmd.Flags().StringVarP(&threadOpts.Name, "name", "n", "", localize("FlagName", nil))
+	newThreadCmd.Flags().StringVarP(&threadOpts.Subject, "subject", "s", "", localize("FlagSubject", nil))
+	newThreadCmd.Flags().StringVarP(&threadOpts.Email, "email", "e", "", localize("FlagEmail", nil))
+	newThreadCmd.Flags().BoolVarP(&threadOpts.Spoiler, "spoiler", "S", false, localize("FlagSpoiler", nil))
+	newThreadCmd.Flags().StringVarP(&threadOpts.Body, "body", "B", "", localize("FlagBody", nil))
+	newThreadCmd.Flags().StringVarP(&msgFile, "msg-file", "m", "", localize("FlagMsgFile", nil))
+	newThreadCmd.Flags().StringVarP(&threadOpts.Embed, "embed", "E", "", localize("FlagEmbed", nil))
+	newThreadCmd.Flags().StringVarP(&threadOpts.Password, "password", "p", "", localize("FlagPassword", nil))
+	newThreadCmd.Flags().BoolVarP(&threadOpts.Sage, "prevent-bump", "P", false, localize("FlagPreventBump", nil))
+	newThreadCmd.Flags().StringSliceVarP(&threadOpts.Files, "files", "f", []string{}, localize("FlagFiles", nil))
+	newThreadCmd.Flags().BoolVarP(&verbose, "verbose", "v", false, localize("FlagVerbose", nil))
+	newThreadCmd.Flags().StringVarP(&userAgent, "user-agent", "u", "", localize("FlagUserAgent", nil))
 
-	postThreadCmd.MarkFlagRequired("board")
+	newThreadCmd.MarkFlagRequired("board")
 
 	postReplyCmd.Flags().IntVarP(&replyOpts.Thread, "thread", "t", 0, localize("FlagThread", nil))
 	postReplyCmd.Flags().StringVarP(&replyOpts.Board, "board", "b", "", localize("FlagBoard", nil))
@@ -101,7 +101,7 @@ func main() {
 		Long:  localize("LongDescription", nil),
 	}
 
-	rootCmd.AddCommand(postThreadCmd)
+	rootCmd.AddCommand(newThreadCmd)
 	rootCmd.AddCommand(postReplyCmd)
 
 	if err := rootCmd.Execute(); err != nil {
