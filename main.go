@@ -108,7 +108,7 @@ func main() {
 
 func newThread(cmd *cobra.Command, args []string) {
 	if err := validateFlags(threadOpts.Body, msgFile); err != nil {
-		log.Fatal(localize("ErrorInvalidFlags", map[string]interface{}{
+		log.Fatalln(localize("ErrorInvalidFlags", map[string]interface{}{
 			"Error": err,
 		}))
 	}
@@ -116,7 +116,7 @@ func newThread(cmd *cobra.Command, args []string) {
 	if msgFile != "" {
 		content, err := getFileContent(msgFile)
 		if err != nil {
-			log.Fatal(localize("ErrorReadingFile", map[string]interface{}{
+			log.Fatalln(localize("ErrorReadingFile", map[string]interface{}{
 				"Error": err,
 			}))
 		}
@@ -134,7 +134,7 @@ func newThread(cmd *cobra.Command, args []string) {
 
 	id, err := vc.NewThread(threadOpts)
 	if err != nil {
-		log.Fatal(localize("ErrorPostingThread", map[string]interface{}{
+		log.Fatalln(localize("ErrorPostingThread", map[string]interface{}{
 			"ThreadOpts": fmt.Sprintf("%+v", threadOpts),
 			"Error":      err,
 		}))
@@ -147,7 +147,7 @@ func newThread(cmd *cobra.Command, args []string) {
 
 func postReply(cmd *cobra.Command, args []string) {
 	if err := validateFlags(replyOpts.Body, msgFile); err != nil {
-		log.Fatal(localize("ErrorInvalidFlags", map[string]interface{}{
+		log.Fatalln(localize("ErrorInvalidFlags", map[string]interface{}{
 			"Error": err,
 		}))
 	}
@@ -155,7 +155,7 @@ func postReply(cmd *cobra.Command, args []string) {
 	if msgFile != "" {
 		content, err := getFileContent(msgFile)
 		if err != nil {
-			log.Fatal(localize("ErrorReadingFile", map[string]interface{}{
+			log.Fatalln(localize("ErrorReadingFile", map[string]interface{}{
 				"Error": err,
 			}))
 		}
@@ -173,7 +173,7 @@ func postReply(cmd *cobra.Command, args []string) {
 
 	id, err := vc.PostReply(replyOpts)
 	if err != nil {
-		log.Fatal(localize("ErrorPostingReply", map[string]interface{}{
+		log.Fatalln(localize("ErrorPostingReply", map[string]interface{}{
 			"ReplyOpts": fmt.Sprintf("%+v", replyOpts),
 			"Error":     err,
 		}))

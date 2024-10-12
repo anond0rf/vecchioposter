@@ -23,5 +23,10 @@
   "FlagPreventBump": "Sostituisce l'email con 'rabbia' e impedisce il bump del thread",
   "FlagFiles": "Percorsi dei file da allegare",
   "FlagVerbose": "Abilita il logging dettagliato",
-  "FlagUserAgent": "L'User-Agent personalizzato da usare per le richieste HTTP"
+  "FlagUserAgent": "L'User-Agent personalizzato da usare per le richieste HTTP",
+  "ErrorWinRetrieveLang": "impossibile rilevare la lingua in uso dal sistema o dal registro di sistema: {{.Err}}, {{.Error}}",
+  "ErrorWinLocaleInfo": "impossibile ottenere informazioni sulla lingua: {{.Error}}",
+  "ErrorWinOpenRegKey": "impossibile aprire la chiave di registro: {{.Error}}",
+  "ErrorWinQueryRegKey": "impossibile leggere il valore del registro: {{.Error}}",
+  "ErrorUnixRetrieveLang": "impossibile determinare la lingua di sistema dalle variabili d'ambiente"
 }

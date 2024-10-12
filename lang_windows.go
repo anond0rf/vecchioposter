@@ -3,7 +3,7 @@
 package main
 
 import (
-	"fmt"
+	"errors"
 	"unicode/utf16"
 	"unsafe"
 
@@ -20,7 +20,10 @@ func GetOSLanguage() (string, error) {
 	if err != nil {
 		lang, regErr := getLanguageFromRegistry()
 		if regErr != nil {
-			return "", fmt.Errorf("failed to get language from both system and registry: %w, %w", err, regErr)
+			return "", errors.New(localize("ErrorWinRetrieveLang", map[string]interface{}{
+				"Err":   err,
+				"Error": regErr,
+			}))
 		}
 		return lang, nil
 	}
@@ -40,7 +43,10 @@ func getWindowsLanguage() (string, error) {
 	)
 
 	if ret == 0 {
-		return "", fmt.Errorf("failed to get locale info: %w", err)
+		return "", errors.New(localize("ErrorWinLocaleInfo", map[string]interface{}{
+			"Error": err,
+		}))
+
 	}
 
 	return utf16ToString(buf[:]), nil
@@ -58,7 +64,9 @@ func getLanguageFromRegistry() (string, error) {
 	var key windows.Handle
 	err := windows.RegOpenKeyEx(windows.HKEY_CURRENT_USER, windows.StringToUTF16Ptr(`Control Panel\International`), 0, windows.KEY_READ, &key)
 	if err != nil {
-		return "", fmt.Errorf("failed to open registry key: %w", err)
+		return "", errors.New(localize("ErrorWinOpenRegKey", map[string]interface{}{
+			"Error": err,
+		}))
 	}
 	defer windows.RegCloseKey(key)
 
@@ -66,7 +74,9 @@ func getLanguageFromRegistry() (string, error) {
 	var bufLen uint32 = uint32(len(buf) * 2)
 	err = windows.RegQueryValueEx(key, windows.StringToUTF16Ptr("LocaleName"), nil, nil, (*byte)(unsafe.Pointer(&buf[0])), &bufLen)
 	if err != nil {
-		return "", fmt.Errorf("failed to query registry value: %w", err)
+		return "", errors.New(localize("ErrorWinQueryRegKey", map[string]interface{}{
+			"Error": err,
+		}))
 	}
 
 	return utf16ToString(buf[:]), nil

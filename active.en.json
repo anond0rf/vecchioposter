@@ -23,5 +23,10 @@
   "FlagPreventBump": "Replaces email with 'rabbia' and prevents bumping the thread",
   "FlagFiles": "Paths of the files to attach",
   "FlagVerbose": "Enable verbose logging",
-  "FlagUserAgent": "The custom User-Agent to use for HTTP requests"
+  "FlagUserAgent": "The custom User-Agent to use for HTTP requests",
+  "ErrorWinRetrieveLang": "failed to get language from both system and registry: {{.Err}}, {{.Error}}",
+  "ErrorWinLocaleInfo": "failed to get locale info: {{.Error}}",
+  "ErrorWinOpenRegKey": "failed to open registry key: {{.Error}}",
+  "ErrorWinQueryRegKey": "failed to query registry value: {{.Error}}",
+  "ErrorUnixRetrieveLang": "could not determine the system language from environment variables"
 }

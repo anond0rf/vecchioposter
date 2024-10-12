@@ -3,7 +3,7 @@
 package main
 
 import (
-	"fmt"
+	"errors"
 	"os"
 	"strings"
 )
@@ -17,5 +17,5 @@ func GetOSLanguage() (string, error) {
 		}
 	}
 
-	return "", fmt.Errorf("could not determine the system language from environment variables")
+	return "", errors.New(localize("ErrorUnixRetrieveLang", nil))
 }
