@@ -1,6 +1,5 @@
 <a name="readme-top"></a>  
-[![English](https://img.shields.io/badge/lang-en-blue.svg)](README-en.md) [![Italiano](https://img.shields.io/badge/lang-it-blue.svg)](README.md)  
-![License](https://img.shields.io/github/license/anond0rf/vecchioposter) [![GitHub Release](https://img.shields.io/github/v/release/anond0rf/vecchioposter?label=release)](https://github.com/anond0rf/vecchioposter/releases) [![Go Report Card](https://goreportcard.com/badge/github.com/anond0rf/vecchioposter)](https://goreportcard.com/report/github.com/anond0rf/vecchioposter) [![Go Version](https://img.shields.io/github/go-mod/go-version/anond0rf/vecchioposter)](https://github.com/anond0rf/vecchioposter)  
+[![English](https://img.shields.io/badge/lang-en-blue.svg)](README-en.md) [![Italiano](https://img.shields.io/badge/lang-it-blue.svg)](README.md) ![License](https://img.shields.io/github/license/anond0rf/vecchioposter) [![GitHub Release](https://img.shields.io/github/v/release/anond0rf/vecchioposter?label=release)](https://github.com/anond0rf/vecchioposter/releases) [![Go Report Card](https://goreportcard.com/badge/github.com/anond0rf/vecchioposter)](https://goreportcard.com/report/github.com/anond0rf/vecchioposter) [![Go Version](https://img.shields.io/github/go-mod/go-version/anond0rf/vecchioposter)](https://github.com/anond0rf/vecchioposter)  
 
 <br />
 <div align="center">
